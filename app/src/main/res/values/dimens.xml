@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_40">40sp</dimen>
+    <dimen name="margin_start_actor">8dp</dimen>
+    <dimen name="margin_top_back_59">59dp</dimen>
+    <dimen name="margin_start_back_22">22dp</dimen>
+    <dimen name="margin_start_back_title_8">8dp</dimen>
+    <dimen name="margin_start_pg_20">20dp</dimen>
+    <dimen name="margin_bottom_pg_52">52dp</dimen>
+    <dimen name="margin_start_tagline_16">16dp</dimen>
+    <dimen name="margin_top_tagline_4dp">4dp</dimen>
+    <dimen name="margin_start_movi_name_20">20dp</dimen>
+    <dimen name="margin_start_star1_16">16dp</dimen>
+    <dimen name="margin_top_star_8">8dp</dimen>
+    <dimen name="margin_start_commo_star_8">3dp</dimen>
+    <dimen name="margin_start_reviews_8">8dp</dimen>
+    <dimen name="margin_start_storeline_16">16dp</dimen>
+    <dimen name="margin_top_storeline_24">24dp</dimen>
+    <dimen name="margin_horisontal_content_16">16dp</dimen>
+    <dimen name="margin_top_content_4">4dp</dimen>
+    <dimen name="margin_start_cast_16">16dp</dimen>
+    <dimen name="margin_top_cast_24">24dp</dimen>
+    <dimen name="margin_start_actor_16">16dp</dimen>
+    <dimen name="margin_top_actor_7">7dp</dimen>
+    <dimen name="margin_end_actor_15">15dp</dimen>
+</resources>
