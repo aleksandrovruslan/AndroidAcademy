@@ -78,55 +78,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/movie_name" />
 
-        <ImageView
-            android:id="@+id/star1"
+        <RatingBar
+            android:id="@+id/rating_bar"
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_start_star1_16"
             android:layout_marginTop="@dimen/margin_top_star_8"
-            android:src="@drawable/ic_star_icon"
+            android:numStars="5"
+            android:progressBackgroundTint="@color/colorDarkGrey"
+            android:progressTint="@color/colorPink"
+            android:secondaryProgressTint="@color/colorPink"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tagline" />
-
-        <ImageView
-            android:id="@+id/star2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_commo_star_8"
-            android:src="@drawable/ic_star_icon"
-            app:layout_constraintBottom_toBottomOf="@id/star1"
-            app:layout_constraintStart_toEndOf="@id/star1"
-            app:layout_constraintTop_toTopOf="@id/star1" />
-
-        <ImageView
-            android:id="@+id/star3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_commo_star_8"
-            android:src="@drawable/ic_star_icon"
-            app:layout_constraintBottom_toBottomOf="@id/star2"
-            app:layout_constraintStart_toEndOf="@id/star2"
-            app:layout_constraintTop_toTopOf="@id/star2" />
-
-        <ImageView
-            android:id="@+id/star4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_commo_star_8"
-            android:src="@drawable/ic_star_icon"
-            app:layout_constraintBottom_toBottomOf="@id/star3"
-            app:layout_constraintStart_toEndOf="@id/star3"
-            app:layout_constraintTop_toTopOf="@id/star3" />
-
-        <ImageView
-            android:id="@+id/star5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_commo_star_8"
-            android:src="@drawable/ic_star_icon_grey"
-            app:layout_constraintBottom_toBottomOf="@id/star4"
-            app:layout_constraintStart_toEndOf="@id/star4"
-            app:layout_constraintTop_toTopOf="@id/star4" />
+            app:layout_constraintTop_toBottomOf="@id/tagline"
+            tools:rating="4" />
 
         <TextView
             android:id="@+id/reviews"
@@ -136,9 +101,9 @@
             android:text="@string/reviews_count"
             android:textColor="@color/colorDarkGrey"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/star5"
-            app:layout_constraintStart_toEndOf="@id/star5"
-            app:layout_constraintTop_toTopOf="@id/star5" />
+            app:layout_constraintBottom_toBottomOf="@id/rating_bar"
+            app:layout_constraintStart_toEndOf="@id/rating_bar"
+            app:layout_constraintTop_toTopOf="@id/rating_bar" />
 
         <TextView
             android:id="@+id/storyline"
