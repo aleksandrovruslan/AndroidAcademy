@@ -25,4 +25,23 @@
     <dimen name="margin_start_actor_16">16dp</dimen>
     <dimen name="margin_top_actor_7">7dp</dimen>
     <dimen name="margin_end_actor_15">15dp</dimen>
+    <dimen name="movie_list_width">170dp</dimen>
+    <dimen name="movie_list_height">296dp</dimen>
+    <dimen name="text_size_8">8sp</dimen>
+    <dimen name="list_background_height">246dp</dimen>
+    <dimen name="pg_margin">8dp</dimen>
+    <dimen name="follow_width">16dp</dimen>
+    <dimen name="follow_height">14dp</dimen>
+    <dimen name="follow_margin_top">13dp</dimen>
+    <dimen name="follow_margin_end">8dp</dimen>
+    <dimen name="tags_margin_bottom">22dp</dimen>
+    <dimen name="reviews_margin_start">6dp</dimen>
+    <dimen name="list_background_margin">2dp</dimen>
+    <dimen name="location_width_16">16dp</dimen>
+    <dimen name="location_height_16">16dp</dimen>
+    <dimen name="location_margin_start">16dp</dimen>
+    <dimen name="location_margin_top">56dp</dimen>
+    <dimen name="location_name_margin_start">24dp</dimen>
+    <dimen name="movie_place_margin_start">12dp</dimen>
+    <dimen name="movie_place_margin_top">30dp</dimen>
 </resources>
