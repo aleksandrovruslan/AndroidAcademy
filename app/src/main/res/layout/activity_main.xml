@@ -6,43 +6,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorBlack"
-        tools:context=".MainActivity">
+        android:fillViewport="true"
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/location"
-            android:layout_width="@dimen/location_width_16"
-            android:layout_height="@dimen/location_height_16"
-            android:layout_marginStart="@dimen/location_margin_start"
-            android:layout_marginTop="@dimen/location_margin_top"
-            android:src="@drawable/ic_location"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBlack"
+            tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/location_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/location_name_margin_start"
-            android:text="@string/movies_list"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/text_size_14"
-            app:layout_constraintBottom_toBottomOf="@id/location"
-            app:layout_constraintStart_toEndOf="@id/location"
-            app:layout_constraintTop_toTopOf="@id/location" />
+            <ImageView
+                android:id="@+id/location"
+                android:layout_width="@dimen/location_width_16"
+                android:layout_height="@dimen/location_height_16"
+                android:layout_marginStart="@dimen/location_margin_start"
+                android:layout_marginTop="@dimen/location_margin_top"
+                android:src="@drawable/ic_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
-            android:id="@+id/movie_place"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/movie_place_margin_start"
-            android:layout_marginTop="@dimen/movie_place_margin_top"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/location" />
+            <TextView
+                android:id="@+id/location_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/location_name_margin_start"
+                android:text="@string/movies_list"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_14"
+                app:layout_constraintBottom_toBottomOf="@id/location"
+                app:layout_constraintStart_toEndOf="@id/location"
+                app:layout_constraintTop_toTopOf="@id/location" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <FrameLayout
+                android:id="@+id/movie_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/movie_place_margin_start"
+                android:layout_marginTop="@dimen/movie_place_margin_top"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/location" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </FrameLayout>
