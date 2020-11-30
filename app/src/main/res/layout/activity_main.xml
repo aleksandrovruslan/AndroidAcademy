@@ -1,55 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/movie_details_place"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/movie_place"
         android:layout_width="match_parent"
-        android:fillViewport="true"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorBlack"
-            tools:context=".MainActivity">
-
-            <ImageView
-                android:id="@+id/location"
-                android:layout_width="@dimen/location_width_16"
-                android:layout_height="@dimen/location_height_16"
-                android:layout_marginStart="@dimen/location_margin_start"
-                android:layout_marginTop="@dimen/location_margin_top"
-                android:src="@drawable/ic_location"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/location_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/location_name_margin_start"
-                android:text="@string/movies_list"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/text_size_14"
-                app:layout_constraintBottom_toBottomOf="@id/location"
-                app:layout_constraintStart_toEndOf="@id/location"
-                app:layout_constraintTop_toTopOf="@id/location" />
-
-            <FrameLayout
-                android:id="@+id/movie_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/movie_place_margin_start"
-                android:layout_marginTop="@dimen/movie_place_margin_top"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/location" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

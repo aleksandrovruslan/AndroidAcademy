@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 
 class FragmentMoviesList : Fragment() {
 
-    private var _listener: View.OnClickListener? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -17,12 +15,16 @@ class FragmentMoviesList : Fragment() {
         val root = inflater.inflate(
             R.layout.fragment_movies_list, container, false
         )
-        root.setOnClickListener(_listener)
+        val movieCard: View = root.findViewById(R.id.movie_card)
+        movieCard.setOnClickListener {
+            activity?.let {
+                it.supportFragmentManager.beginTransaction()
+                    .addToBackStack(null)
+                    .replace(R.id.movie_place, FragmentMoviesDetails.newInstance())
+                    .commit()
+            }
+        }
         return root
-    }
-
-    fun setOnClickListener(listener: View.OnClickListener) {
-        _listener = listener
     }
 
     companion object {
