@@ -15,8 +15,11 @@
     <string name="cast">Cast</string>
     <string name="movie_list_pg">13+</string>
     <string name="movie_tags">Action, Adventure, Drama</string>
-    <string name="movie_duration">137 min</string>
     <string name="reviews_125">125 Reviews</string>
     <string name="avengers_end_game">Avengers: End Game</string>
     <string name="movies_list">Movies list</string>
+    <string name="movie_reviews">%1$d Reviews</string>
+    <string name="movie_duration">"%1$d min</string>
+
+    <string name="tools_movie_duration">137 min</string>
 </resources>

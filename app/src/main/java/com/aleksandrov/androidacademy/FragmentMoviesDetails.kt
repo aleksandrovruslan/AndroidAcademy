@@ -6,8 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.aleksandrov.androidacademy.data.Actor
 
 class FragmentMoviesDetails : Fragment() {
+
+    private val actors: List<Actor> = MutableList(20) {
+        Actor(
+            "https://st.kp.yandex.net/im/kadr/3/3/7/kinopoisk.ru-Keanu-Reeves-3379590.jpg",
+            "Keanu Reeves"
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +32,9 @@ class FragmentMoviesDetails : Fragment() {
                 it.supportFragmentManager.popBackStack()
             }
         }
+        val recycler: RecyclerView = root.findViewById(R.id.actors_recycler)
+        recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recycler.adapter = ActorAdapter(actors)
         return root
     }
 
