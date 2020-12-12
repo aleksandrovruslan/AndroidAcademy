@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aleksandrov.androidacademy.data.Movie
 import com.bumptech.glide.Glide
 
-class MovieAdapter(private val listener: ClickListener) : RecyclerView.Adapter<MovieViewHolder>() {
-
-    private var _movies: List<Movie> = listOf()
+class MovieAdapter(
+    private val movies: List<Movie>,
+    private val listener: (Movie) -> Unit
+) : RecyclerView.Adapter<MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         return MovieViewHolder(
@@ -23,15 +24,11 @@ class MovieAdapter(private val listener: ClickListener) : RecyclerView.Adapter<M
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.onBind(_movies[position], listener)
+        holder.onBind(movies[position], listener)
     }
 
     override fun getItemCount(): Int {
-        return _movies.size
-    }
-
-    fun bindMovies(movies: List<Movie>) {
-        _movies = movies
+        return movies.size
     }
 
 }
@@ -47,7 +44,7 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val reviewsTv: TextView? = itemView.findViewById(R.id.reviews)
     private val durationTv: TextView? = itemView.findViewById(R.id.movie_duration)
 
-    fun onBind(movie: Movie, listener: ClickListener) {
+    fun onBind(movie: Movie, listener: (Movie) -> Unit) {
         movieNameTv?.text = movie.name
         pgTv?.text = movie.pg
         followBtn?.isChecked = movie.isFollow
@@ -66,14 +63,10 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             R.string.movie_duration,
             movie.duration
         )
-        itemView.setOnClickListener { listener.onClick(movie) }
+        itemView.setOnClickListener { listener(movie) }
     }
 
 }
 
 private val RecyclerView.ViewHolder.context
     get() = this.itemView.context
-
-interface ClickListener {
-    fun onClick(movie: Movie)
-}
