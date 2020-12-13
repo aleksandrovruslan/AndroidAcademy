@@ -8,22 +8,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.aleksandrov.androidacademy.data.Movie
+import com.aleksandrov.androidacademy.data.loadMovies
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 class FragmentMoviesList : Fragment() {
 
-    private val movies: List<Movie> = MutableList(20) { index ->
-        Movie(
-            "Avengers: End Game",
-            "13+",
-            index % 2 == 0,
-            "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
-            listOf("Action", "Adventure", "Fantasy"),
-            5.0f,
-            125,
-            137
-        )
-    }
+    private val mainScope = MainScope()
+    private lateinit var recycler: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +25,7 @@ class FragmentMoviesList : Fragment() {
         val root = inflater.inflate(
             R.layout.fragment_movies_list, container, false
         )
-        val recycler: RecyclerView = root.findViewById(R.id.movies_recycler)
+        recycler = root.findViewById(R.id.movies_recycler)
         if (getActivity()?.getResources()
                 ?.getConfiguration()?.orientation == Configuration.ORIENTATION_PORTRAIT
         ) {
@@ -40,16 +33,33 @@ class FragmentMoviesList : Fragment() {
         } else {
             recycler.setLayoutManager(GridLayoutManager(context, 3));
         }
-        val adapter = MovieAdapter(movies) { movie ->
-            activity?.let {
-                it.supportFragmentManager.beginTransaction()
-                    .addToBackStack(null)
-                    .replace(R.id.movie_place, FragmentMoviesDetails.newInstance())
-                    .commit()
+        loadData()
+        return root
+    }
+
+    private fun loadData() {
+        mainScope.launch {
+            context?.also { context ->
+                loadMovies(context).also { movies ->
+                    recycler.adapter = MovieAdapter(movies) { movie ->
+                        activity?.also { activity ->
+                            activity.supportFragmentManager.beginTransaction()
+                                .addToBackStack(null)
+                                .replace(
+                                    R.id.movie_place,
+                                    FragmentMoviesDetails.newInstance(movie)
+                                )
+                                .commit()
+                        }
+                    }
+                }
             }
         }
-        recycler.adapter = adapter
-        return root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mainScope.cancel()
     }
 
     companion object {
