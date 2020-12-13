@@ -36,10 +36,10 @@ class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun onBind(actor: Actor) {
         actorImg?.let {
             Glide.with(itemView)
-                .load(actor.imageUrl)
+                .load(actor.picture)
                 .into(it)
         }
-        actorTitle?.text = actor.title
+        actorTitle?.text = actor.name
     }
 
 }

@@ -45,23 +45,22 @@ class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val durationTv: TextView? = itemView.findViewById(R.id.movie_duration)
 
     fun onBind(movie: Movie, listener: (Movie) -> Unit) {
-        movieNameTv?.text = movie.name
-        pgTv?.text = movie.pg
-        followBtn?.isChecked = movie.isFollow
+        movieNameTv?.text = movie.title
+        pgTv?.text = "${movie.minimumAge}+"
         backgroundImg?.let {
             Glide.with(itemView)
-                .load(movie.imageUrl)
+                .load(movie.poster)
                 .into(it)
         }
-        tagsTv?.text = movie.tags.joinToString(separator = ", ")
-        ratingBar?.rating = movie.rating
+        tagsTv?.text = movie.genres.map { it.name }.joinToString(separator = ", ")
+        ratingBar?.rating = movie.ratings / 2
         reviewsTv?.text = context.getString(
             R.string.movie_reviews,
-            movie.reviewsCount
+            movie.numberOfRatings
         )
         durationTv?.text = context.getString(
             R.string.movie_duration,
-            movie.duration
+            movie.runtime
         )
         itemView.setOnClickListener { listener(movie) }
     }
